@@ -1,0 +1,108 @@
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  celery_worker:
+    build: .
+    container_name: celery_worker
+    restart: always
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
+    command: celery -A celery_app worker --loglevel=info
+
+  flower:
+    image: mher/flower
+    container_name: flower
+    restart: always
+    depends_on:
+      - redis
+      - celery_worker
+    environment:
+      - CELERY_BROKER=redis://redis:6379/0
+    ports:
+      - "5555:5555"
+    command: celery -A celery_app flower --port=5555
+
+  validation:
+    build:
+      context: ./1_validation  
+      dockerfile: Dockerfile
+    container_name: validation_service
+    ports:
+      - "8001:8001"
+    environment:
+      - KAFKA_BROKER=kafka:9092
+    depends_on:
+      - kafka
+
+  evaluation:
+    build:
+      context: ./2_evaluation  
+      dockerfile: Dockerfile
+    container_name: evaluation_service
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./asset:/app/asset 
+    environment:
+      - KAFKA_BROKER=kafka:9092
+      - ASSET_FOLDER=/app/asset 
+    depends_on:
+      - kafka
+
+  assurance:
+    build:
+      context: ./3_assurance  
+      dockerfile: Dockerfile
+    container_name: assurance_service
+    ports:
+      - "8003:8003"
+    environment:
+      - KAFKA_BROKER=kafka:9092
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - kafka
+      - redis
+      - celery_worker
+
+  verification:
+    build:
+      context: ./4_evaluation  
+      dockerfile: Dockerfile
+    container_name: verification_service
+    ports:
+      - "8004:8004"
+    environment:
+      - KAFKA_BROKER=kafka:9092
+    depends_on:
+      - kafka  
+
+
+# docker compose up -d
+# docker exec -it kafka kafka-topics.sh --list --bootstrap-server kafka:9092
+# docker exec -it kafka kafka-topics.sh --create --topic validated_requests --bootstrap-server kafka:9092

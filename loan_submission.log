@@ -1,0 +1,62 @@
+2025-03-22 18:14:14,928 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:14:14,936 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请告诉我您的姓名。
+2025-03-22 18:14:26,115 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:14:26,117 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢，叶展先生。请提供您的出生日期（格式为 DDMMYYYY）。
+2025-03-22 18:14:31,251 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:14:31,253 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：好的，您选择的贷款类型是车贷（c）。请告诉我您的出生日期（格式为 DDMMYYYY）。
+2025-03-22 18:14:38,878 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:14:38,881 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢，您的出生日期是 26/08/1999。请提供您的身份证号。
+2025-03-22 18:14:43,036 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:14:43,039 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢您的身份证号。请提供您的地址。
+2025-03-22 18:14:46,932 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:14:46,934 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请提供您的详细地址，以便我记录。
+2025-03-22 18:14:55,506 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:14:55,507 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢，您的地址是 Versailles。请告诉我您希望申请的贷款金额。
+2025-03-22 18:15:00,512 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:15:00,516 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢，您的贷款金额是 88,888。请告诉我您的资产金额。
+2025-03-22 18:15:05,558 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:15:05,565 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢，您的资产金额是 666。请告诉我您的年收入。
+2025-03-22 18:15:09,408 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:15:09,411 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢，您的年收入是 777。最后，请告诉我您的债务金额。
+2025-03-22 18:15:13,559 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:15:13,585 - INFO - \u2705 成功提交贷款信息：{"name": "叶展", "gender": "m", "birth_date": "26081999", "id_number": "13246", "address": "Versailles", "loan_type": "c", "loan_amount": 88888, "assets": 666, "annual_income": 777, "debt": 0}
+2025-03-22 18:16:08,136 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:08,138 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的性别是什么？
+2025-03-22 18:16:12,213 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:12,215 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的出生日期是什么？（格式为 DDMMYYYY）
+2025-03-22 18:16:24,632 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:24,635 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的身份证号是什么？
+2025-03-22 18:16:28,224 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:28,226 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的地址是什么？
+2025-03-22 18:16:32,544 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:32,546 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋申请的贷款类型是什么？（房贷填 "f"，车贷填 "c"）
+2025-03-22 18:16:47,784 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:47,785 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的贷款金额是多少？
+2025-03-22 18:16:52,774 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:52,853 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的资产金额是多少？
+2025-03-22 18:16:57,551 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:16:57,553 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的年收入是多少？
+2025-03-22 18:17:02,140 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:17:02,143 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：请问王松洋的债务金额是多少？
+2025-03-22 18:17:07,654 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:17:07,661 - INFO - \u2705 成功提交贷款信息：{"name": "王松洋", "gender": "f", "birth_date": "01011999", "id_number": "151515", "address": "Versailles", "loan_type": "f", "loan_amount": 3, "assets": 100000, "annual_income": 100000, "debt": 0}
+2025-03-22 18:18:36,944 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:18:36,954 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：您好，王松杨！请问您的性别是男还是女？
+2025-03-22 18:18:40,603 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:18:40,605 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：感谢您的回复！请问您的出生日期是什么？格式为“DDMMYYYY”。
+2025-03-22 18:18:49,055 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:18:49,062 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢您提供的信息！请问您的身份证号是什么？
+2025-03-22 18:18:52,243 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:18:52,245 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：感谢您提供身份证号！接下来，请问您的地址是什么？
+2025-03-22 18:18:59,269 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:18:59,271 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢您提供地址！请问您想申请哪种贷款类型？是房贷（买房）还是车贷（买车）？
+2025-03-22 18:19:06,811 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:19:06,814 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：好的，您选择的是车贷。请问您想申请的贷款金额是多少？（单位：元）
+2025-03-22 18:19:17,638 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:19:17,639 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：感谢您提供贷款金额！接下来，请问您的资产金额是多少？（如果没有资产，请填写0）
+2025-03-22 18:19:21,292 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:19:21,295 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢您的回复！请问您的年收入是多少？（单位：元）
+2025-03-22 18:19:24,290 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:19:24,295 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：感谢您提供年收入！最后，请问您目前的债务金额是多少？（如果没有债务，请填写0）
+2025-03-22 18:19:29,034 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:19:29,055 - INFO - \u2705 成功提交贷款信息：{"name": "王松杨", "gender": "f", "birth_date": "08081998", "id_number": "54654", "address": "Versailles", "loan_type": "c", "loan_amount": 8888, "assets": 0, "annual_income": 555, "debt": 0}

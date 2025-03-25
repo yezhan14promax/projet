@@ -1,0 +1,24 @@
+# Python base image
+FROM python:3.9-slim
+# create and set the working directory
+WORKDIR /app
+# copy the current directory contents into the container at /app
+COPY . /app
+# install dependencies from requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+# expose the port the app runs on
+EXPOSE 8001
+# run the FastAPI app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
+
+# docker build -t 1_validation:latest .
+# docker run -d --name 1_validation -p 8001:8001 1_validation
+# docker images
+# docker ps
+# docker stop / start / rm / logs
+# http://localhost:8001/docs#/ 
+# docker rmi -f / docker system df / docker builder prune -f
+
+# docker login
+# docker tag 1_validation:latest jiaqiqi/1_validation:latest
+# docker push jiaqiqi/1_validation:latest

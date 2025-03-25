@@ -1,0 +1,41 @@
+wsl
+1.zhongduan
+cd /home/yz/kafka_2.13-3.4.0
+sudo bin/zookeeper-server-start.sh config/zookeeper.properties
+
+2.
+cd /home/yz/kafka_2.13-3.4.0
+sudo bin/kafka-server-start.sh config/server.properties
+
+3.
+bin/kafka-topics.sh --create --topic validated_requests --bootstrap-server 172.20.225.146:9092
+bin/kafka-topics.sh --create --topic acceptation --bootstrap-server localhost:9092
+bin/kafka-topics.sh --create --topic plan --bootstrap-server localhost:9092
+sudo service redis-server start
+
+win
+1.
+celery -A assurance.celery_app worker --loglevel=info --pool=solo
+
+2.
+celery -A assurance.celery_app flower --port=5555
+
+3.
+uvicorn validation1.main:app --reload --port 8001
+
+4.
+uvicorn evaluation2.main:app --reload --port 8002
+
+5.
+uvicorn assurance3.main:app --reload --port 8003
+
+6.
+uvicorn verification4.main:app --reload --port 8004
+
+7.
+C:/Users/yezhan/anaconda3/envs/soa/python.exe d:/a萨克雷学习文件/Processus_metier/projet_QI_YE/projet/verification4/test.py
+
+检查消息
+bin/kafka-console-consumer.sh --topic validated_requests --from-beginning --bootstrap-server 172.20.225.146:9092
+bin/kafka-console-consumer.sh --topic acceptation --from-beginning --bootstrap-server 172.20.225.146:9092
+bin/kafka-console-consumer.sh --topic plan --from-beginning --bootstrap-server 172.20.225.146:9092

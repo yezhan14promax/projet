@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+pydantic
+aiokafka
+kafka-python
+flower
+sse-starlette 
+jinja2

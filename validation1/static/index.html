@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI 贷款助理</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f8f8f8;
+    }
+    #chat {
+      height: 400px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      background-color: #fff;
+    }
+    #chat p {
+      margin: 0.5rem 0;
+    }
+    .user { color: #0077cc; font-weight: bold; }
+    .bot { color: #333; font-style: italic; }
+    #input-area {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>💬 AI 贷款申请助手</h2>
+  <div id="chat"></div>
+  <div id="input-area">
+    <input id="message" type="text" size="70" placeholder="请输入您的信息..." />
+    <button onclick="sendMessage()">发送</button>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const msgInput = document.getElementById("message");
+      const chatDiv = document.getElementById("chat");
+      const message = msgInput.value.trim();
+      if (!message) return;
+
+      chatDiv.innerHTML += `<p><span class="user">你:</span> ${message}</p>`;
+      msgInput.value = "";
+
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id: "user1", message })
+      });
+      const data = await res.json();
+
+      chatDiv.innerHTML += `<p><span class="bot">助理:</span> ${data.reply}</p>`;
+      chatDiv.scrollTop = chatDiv.scrollHeight;
+    }
+
+    // 回车发送消息
+    document.getElementById("message").addEventListener("keypress", function (e) {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>
