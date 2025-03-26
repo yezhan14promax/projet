@@ -2,10 +2,25 @@ import os
 import json
 import asyncio
 import logging
+import smtplib
 from fastapi import FastAPI
 from datetime import datetime
 from aiokafka import AIOKafkaConsumer, AIOKafkaProducer
 from fastapi.responses import StreamingResponse
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.utils import formataddr
+from dotenv import load_dotenv
+from pathlib import Path
+
+env_path = Path(__file__).resolve().parents[1] / '.env'
+load_dotenv(dotenv_path=env_path)
+
+GMAIL_USER = os.getenv("GMAIL_USER")
+GMAIL_PASS = os.getenv("GMAIL_PASS")
+print(f"GMAIL_USER = {GMAIL_USER}")
+print(f"GMAIL_PASS = {'***' if GMAIL_PASS else None}")
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
@@ -15,7 +30,7 @@ logger = logging.getLogger(__name__)
 app = FastAPI(title="Loan Evaluation Service")
 
 # Kafka Configuration
-KAFKA_BROKER = "172.20.225.146:9092"  # os.getenv("kafka:9092")  # Supports Docker
+KAFKA_BROKER = "172.20.225.146:9092"
 VALIDATED_TOPIC = "validated_requests"
 ACCEPTED_TOPIC = "acceptation"
 
@@ -26,26 +41,22 @@ consumer_task = None
 consumer_status = {"running": False, "error": None}
 
 # Asset file storage path
-ASSET_FOLDER = "./asset"  # os.getenv("/app/asset")  # Supports Docker
+ASSET_FOLDER = "./asset"
 
 # Store active clients for SSE
 event_clients = set()
 
-
 async def get_kafka_producer():
-    """Get or create a Kafka producer instance"""
     global producer
     if producer is None:
         producer = AIOKafkaProducer(bootstrap_servers=KAFKA_BROKER)
         await producer.start()
     return producer
 
-
 async def consume_kafka():
-    """Kafka consumer that listens to the 'validated_requests' topic with manual offset commit"""
     global consumer, consumer_status
 
-    while True:  # Auto-reconnect if Kafka disconnects
+    while True:
         try:
             consumer = AIOKafkaConsumer(
                 VALIDATED_TOPIC,
@@ -65,8 +76,8 @@ async def consume_kafka():
                 logger.info(f"Received validated loan request: {data}")
 
                 try:
-                    await aggregate_evaluation(data)
-                    await consumer.commit()  # Commit offset only if no error
+                    await evaluate_loan(data)
+                    await consumer.commit()
                     logger.info(f"Committed offset for message: {msg.offset}")
 
                 except Exception as e:
@@ -86,80 +97,81 @@ async def consume_kafka():
             logger.info("Restarting Kafka consumer in 5 seconds...")
             await asyncio.sleep(5)
 
+async def evaluate_loan(data):
+    id_number = data["id_number"]
+    annual_income = data["annual_income"]
+    debt = data["debt"]
+    assets = data["assets"]
+    loan_amount = data["loan_amount"]
 
-async def aggregate_evaluation(data):
-    """Aggregates asset and risk evaluation results."""
-    loan_id = data["id"]
-    amount = data["amount"]
-    repayment_date = data["repayment_date"]
+    # 计算 max_loan
+    max_loan = (annual_income * 5) - debt + (assets * 0.5)
+    data["max_loan"] = max_loan
 
+    # 保存到 dataset 文件夹
+    dataset_folder = "./dataset"
+    os.makedirs(dataset_folder, exist_ok=True)
+    dataset_file = os.path.join(dataset_folder, f"{id_number}.json")
+    with open(dataset_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    logger.info(f"✅ Data stored to dataset: {dataset_file}")
+
+    # 判定是否接受贷款
+    if loan_amount <= max_loan:
+        producer = await get_kafka_producer()
+        await producer.send_and_wait(ACCEPTED_TOPIC, json.dumps(data, ensure_ascii=False).encode("utf-8"))
+        logger.info(f"✅ Loan request accepted and sent to {ACCEPTED_TOPIC}")
+        result = {"id_number": id_number, "status": "accepted", "max_loan": max_loan}
+    else:
+        result = {
+            "id_number": id_number,
+            "status": "rejected",
+            "reason": f"Requested {loan_amount} exceeds maximum allowable loan {max_loan}"
+        }
+        await send_rejection_email(data["email"], data["name"], loan_amount, max_loan)
+        logger.info(f"❌ Loan request rejected for ID {id_number}")
+
+    await send_sse_event(json.dumps(result))
+
+async def send_rejection_email(recipient_email, name, requested, maximum):
+    print(f"GMAIL_USER = {GMAIL_USER}")
+    print(f"GMAIL_PASS = {'OK' if GMAIL_PASS else 'None'}")
     try:
-        asset_result, risk_result = await asyncio.gather(
-            evaluate_asset(loan_id),
-            evaluate_risk(amount, repayment_date)
-        )
+        msg = MIMEMultipart()
+        msg["From"] = formataddr(("Loan Service", GMAIL_USER))
+        msg["To"] = recipient_email
+        msg["Subject"] = "[Loan Application] Request Rejected"
 
-        if asset_result and risk_result:
-            producer = await get_kafka_producer()
-            await producer.send(ACCEPTED_TOPIC, json.dumps(data).encode("utf-8"))
-            logger.info(f"Loan request {loan_id} accepted and sent to {ACCEPTED_TOPIC}")
+        body = f"""
+Bonjour {name},
 
-            result = {"loan_id": loan_id, "status": "accepted"}
-        else:
-            reasons = []
-            if not asset_result:
-                reasons.append("Asset evaluation failed")
-            if not risk_result:
-                reasons.append("Risk evaluation failed")
+Nous avons bien reçu votre demande de prêt de {requested} euros.
+Cependant, après évaluation de votre profil, le montant maximum auquel vous êtes éligible est de {maximum} euros.
 
-            logger.info(f"Loan request {loan_id} rejected: {', '.join(reasons)}")
-            result = {"loan_id": loan_id, "status": "rejected", "reasons": reasons}
+Nous sommes désolés de ne pas pouvoir répondre favorablement à votre demande actuelle.
 
-        # Send result to SSE clients
-        await send_sse_event(json.dumps(result))
+Cordialement,
+L’équipe de service des prêts
+"""
+        msg.attach(MIMEText(body, "plain"))
+
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(GMAIL_USER, GMAIL_PASS)
+        server.sendmail(GMAIL_USER, recipient_email, msg.as_string())
+        server.quit()
+        logger.info(f"Rejection email sent to {recipient_email}")
 
     except Exception as e:
-        logger.error(f"Error in loan evaluation: {str(e)}")
-        raise
-
-
-async def evaluate_risk(amount: float, repayment_date: str) -> bool:
-    """Simulates risk evaluation"""
-    await asyncio.sleep(1)
-    repayment_dt = datetime.strptime(repayment_date, "%Y-%m-%d")
-    return amount < 5000 and (repayment_dt - datetime.today()).days <= 365
-
-
-async def evaluate_asset(loan_id: int) -> bool:
-    """Evaluate asset based on stored file data."""
-    asset_file = os.path.join(ASSET_FOLDER, f"{loan_id}.json")
-
-    if not os.path.exists(asset_file):
-        logger.error(f"Asset data for loan ID {loan_id} not found.")
-        raise FileNotFoundError(f"Asset file {asset_file} not found")
-
-    try:
-        with open(asset_file, "r") as f:
-            asset_data = json.load(f)
-
-        return asset_data["credit_score"] > 650 and asset_data["total_assets"] > asset_data["liabilities"]
-
-    except Exception as e:
-        logger.error(f"Error reading asset file {asset_file}: {str(e)}")
-        raise
-
+        logger.error(f"Failed to send rejection email: {str(e)}")
 
 @app.get("/health/")
 def health_check():
-    """API endpoint to check Kafka consumer status"""
     return {"status": "running", "kafka_consumer": consumer_status}
-
 
 @app.get("/events/")
 async def event_stream():
-    """SSE endpoint to stream loan evaluation results"""
     async def event_generator():
-        """Generate server-sent events for each new evaluation result"""
         queue = asyncio.Queue()
         event_clients.add(queue)
 
@@ -174,16 +186,12 @@ async def event_stream():
 
     return StreamingResponse(event_generator(), media_type="text/event-stream")
 
-
 async def send_sse_event(data: str):
-    """Broadcasts data to all SSE clients"""
     for queue in event_clients:
         await queue.put(data)
 
-
 @app.on_event("startup")
 async def startup_event():
-    """Automatically starts the Kafka consumer when the application starts"""
     global consumer_task
     try:
         consumer_task = asyncio.create_task(consume_kafka())
@@ -192,13 +200,6 @@ async def startup_event():
         logger.error(f"Error during startup: {str(e)}")
         raise
 
-
-# Run FastAPI application
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8002)
-
-
-    # E:\anaconda3\python.exe f:/DataScale/OP/BPMN/projet/2_evaluation/main.py
-    # bin/kafka-topics.sh --create --topic acceptation --bootstrap-server localhost:9092
-    # bin/kafka-console-consumer.sh --topic acceptation --from-beginning --bootstrap-server 172.20.225.146:9092

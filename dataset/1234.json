@@ -1,0 +1,18 @@
+{
+  "name": "王松",
+  "gender": "m",
+  "birth_date": "09091999",
+  "id_number": "1234",
+  "address": "Versailles",
+  "email": "zhan.ye@edu.ece.fr",
+  "loan_type": "c",
+  "loan_amount": 80,
+  "assets": 500,
+  "annual_income": 5000,
+  "debt": 0,
+  "duree": 36,
+  "assurances": true,
+  "max_loan": 25250.0,
+  "num_pret": "390664930399691579",
+  "num_assurance": "4400001500"
+}
