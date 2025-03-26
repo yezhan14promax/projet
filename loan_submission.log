@@ -338,3 +338,7 @@
 最后，请问您是否需要购买保险？保险价格为您申请的贷款金额的0.5%。
 2025-03-26 00:54:18,579 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-26 00:54:18,592 - INFO - \u2705 成功提交贷款信息：{"name": "王松", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-26 01:23:34,834 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:23:34,870 - INFO - \u2705 成功提交贷款信息：{"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-26 01:25:03,896 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:25:03,907 - INFO - \u2705 成功提交贷款信息：{"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}

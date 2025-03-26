@@ -24,6 +24,14 @@
     #input-area {
       margin-top: 1rem;
     }
+    pre {
+      font-family: inherit;
+      font-style: italic;
+      color: #333;
+      white-space: pre-wrap;
+      margin: 0.5rem 0;
+    }
+
   </style>
 </head>
 <body>
@@ -35,28 +43,47 @@
   </div>
 
   <script>
+    const chatDiv = document.getElementById("chat");
+    const messageInput = document.getElementById("message");
+    const userId = "user1";  // 可替换为真实的 id_number
+
+    // ✅ WebSocket 与第四部分交互
+    const ws = new WebSocket("ws://localhost:8004/ws/chatroom");
+
+    ws.onmessage = function (event) {
+      const contractText = event.data;
+      const fullMessage = `这是合同的内容，如果您确认，请回答“我同意”。\n\n${contractText}`;
+      chatDiv.innerHTML += `<p><span class="bot">助理:</span> <pre style="white-space: pre-wrap">${fullMessage}</pre></p>`;
+      chatDiv.scrollTop = chatDiv.scrollHeight;
+    };
+
     async function sendMessage() {
-      const msgInput = document.getElementById("message");
-      const chatDiv = document.getElementById("chat");
-      const message = msgInput.value.trim();
+      const message = messageInput.value.trim();
       if (!message) return;
 
       chatDiv.innerHTML += `<p><span class="user">你:</span> ${message}</p>`;
-      msgInput.value = "";
+      messageInput.value = "";
 
+      const confirmationWords = ["我同意", "yes", "确认", "accept"];
+      if (confirmationWords.includes(message.toLowerCase())) {
+        ws.send(message);  // 发送到 WebSocket 第四部分
+        chatDiv.innerHTML += `<p><span class="bot">助理:</span> 已收到您的确认，我们将尽快通过邮件发送合同。</p>`;
+        chatDiv.scrollTop = chatDiv.scrollHeight;
+        return;
+      }
+
+      // 正常聊天流程：发送到第一部分后端
       const res = await fetch("/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: "user1", message })
+        body: JSON.stringify({ user_id: userId, message })
       });
       const data = await res.json();
-
       chatDiv.innerHTML += `<p><span class="bot">助理:</span> ${data.reply}</p>`;
       chatDiv.scrollTop = chatDiv.scrollHeight;
     }
 
-    // 回车发送消息
-    document.getElementById("message").addEventListener("keypress", function (e) {
+    messageInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") sendMessage();
     });
   </script>
