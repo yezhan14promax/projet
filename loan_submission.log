@@ -342,3 +342,49 @@
 2025-03-26 01:23:34,870 - INFO - \u2705 成功提交贷款信息：{"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
 2025-03-26 01:25:03,896 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-26 01:25:03,907 - INFO - \u2705 成功提交贷款信息：{"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-26 01:27:05,647 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:27:05,653 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：谢谢您提供的信息，wangsongyang。根据您提供的内容，我已经提取了以下字段：
+
+- name: wangsongyang
+- gender: m
+- birth_date: 09091999
+- id_number: 1234
+- address: Versailles
+- email: zhan.ye@edu.ece.fr
+- loan_type: c
+- loan_amount: 80
+- assets: 500
+- annual_income: 5000
+- debt: 0
+- duree: 36
+- assurances: True
+
+您的申请已提交。如果您还有其他问题或需要进一步的帮助，请随时告诉我！
+2025-03-26 01:27:16,573 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:27:16,576 - WARNING - \u26a0\ufe0f 无法从 AI 回复中提取 JSON。原始回复：感谢您再次提供信息，wangsongyang。您之前的信息我已经记录了。以下是您提供的完整信息：
+
+- name: wangsongyang
+- gender: m
+- birth_date: 09091999
+- id_number: 1234
+- address: Versailles
+- email: zhan.ye@edu.ece.fr
+- loan_type: c
+- loan_amount: 80
+- assets: 500
+- annual_income: 5000
+- debt: 0
+- duree: 36
+- assurances: True
+
+您的申请已提交。如果您还有其他问题或需要进一步的帮助，请随时告诉我！
+2025-03-26 01:27:32,685 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:27:32,700 - INFO - \u2705 成功提交贷款信息：{"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-26 01:30:25,986 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:30:26,029 - INFO - \u2705 成功提交贷款信息：{"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-26 01:31:21,158 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:31:21,162 - INFO - \u2705 成功提交贷款信息：{"name": "xvmingma", "gender": "f", "birth_date": "09091999", "id_number": "123", "address": "Versailles", "email": "137591721@qq.com", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-26 01:31:43,594 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:31:43,598 - INFO - \u2705 成功提交贷款信息：{"name": "wsy", "gender": "m", "birth_date": "09091999", "id_number": "123456789", "address": "Versailles", "email": "1010743053@qq.com", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 80, "duree": 36, "assurances": true}
+2025-03-26 01:33:39,084 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-26 01:33:39,090 - INFO - \u2705 成功提交贷款信息：{"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
