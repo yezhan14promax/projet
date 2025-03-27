@@ -88,7 +88,7 @@ Créez un fichier `.env` à la racine du projet avec le contenu suivant :
 
 ```env
 OPENAI_API_KEY=Votre_clé_openai
-KAFKA_BROKER=172.20.225.146:9092
+KAFKA_BROKER=votre_ip.146:9092
 GMAIL_USER=Votre_adresse_email
 GMAIL_PASS=Votre_mot_de_passe_spécifique
 ```
@@ -102,19 +102,19 @@ Vous pouvez dialoguer naturellement avec le Chatbot ou copier-coller l’un des 
 ### ❌ Non éligible au prêt
 
 ```text
-Je m'appelle Ye Zhan, homme, né le 9 septembre 1999, numéro d'identification 1234567890, adresse Versailles, email zhan.ye@edu.ece.fr, je souhaite emprunter 8 000 000 pour un prêt automobile, actif total 500, revenu annuel 5 000, dette 8 000, je souhaite un prêt sur 36 mois et souscrire une assurance
+Je m'appelle Ye Zhan, homme, né le 9 septembre 1999, numéro d'identification 1234567890, adresse Versailles, je souhaite emprunter 8 000 000 pour un prêt automobile, actif total 500, revenu annuel 5 000, dette 8 000, je souhaite un prêt sur 36 mois et souscrire une assurance
 ```
 
 ### ✅ Éligible + Assurance souscrite
 
 ```text
-Je m'appelle wangsongyang, homme, né le 9 septembre 1999, numéro de carte d'identité 1234, adresse Versailles, email zhan.ye@edu.ece.fr, je souhaite emprunter 80 pour un prêt automobile, actif total 500, revenu annuel 5000, dette 0, je souhaite un prêt sur 36 mois et souscrire une assurance
+Je m'appelle wangsongyang, homme, né le 9 septembre 1999, numéro de carte d'identité 1234, adresse Versailles, je souhaite emprunter 80 pour un prêt automobile, actif total 500, revenu annuel 5000, dette 0, je souhaite un prêt sur 36 mois et souscrire une assurance
 ```
 
 ### ✅ Éligible + Sans assurance
 
 ```text
-Je m'appelle wangsongyang, homme, né le 9 septembre 1999, numéro de carte d'identité 5644869, adresse Versailles, email zhan.ye@edu.ece.fr, je souhaite emprunter 80 pour un prêt automobile, actif total 500, revenu annuel 5000, dette 0, je souhaite un prêt sur 36 mois, pas d'assurance
+Je m'appelle wangsongyang, homme, né le 9 septembre 1999, numéro de carte d'identité 5644869, adresse Versailles, je souhaite emprunter 80 pour un prêt automobile, actif total 500, revenu annuel 5000, dette 0, je souhaite un prêt sur 36 mois, pas d'assurance
 ```
 
 ---
