@@ -81,7 +81,7 @@ async def chat_endpoint(chat: ChatRequest):
     if not any(msg['role'] == 'system' for msg in conversation_history[user_id]):
         conversation_history[user_id].insert(0, {
             "role": "system",
-            "content": ("""Vous êtes un assistant intelligent pour les prêts. Veuillez extraire les champs suivants à partir du langage naturel de l'utilisateur et les formater en JSON standard. Notez que l'utilisateur peut poser des questions en anglais, en français ou en chinois :
+            "content": ("""Vous êtes un assistant intelligent pour les prêts. Veuillez extraire les champs suivants à partir du langage naturel de l'utilisateur et les formater en JSON standard. Veuillez répondre dans la même langue que celle du client. Par exemple, si le client vous pose une question en chinois, répondez en chinois. Si l'on vous pose une question en français, répondez en français, et si l'on vous pose une question en anglais, répondez en anglais:
     - name : Nom, conservez tel quel.
     - gender : Sexe, homme remplissez "m", femme remplissez "f".
     - birth_date : Date de naissance, format "JJMMAAAA", par exemple, le 29 septembre 1999 → "29091999". Si la réponse de l'utilisateur ne respecte pas ce format, veuillez la convertir dans ce format.

@@ -1,9 +1,9 @@
 Contrat d'assurance
-Numéro du contrat : 2380544245
-Assuré (Partie A) : yezhan
-Numéro d'identité : 524545
+Numéro du contrat : 6341613805
+Assuré (Partie A) : Zhan
+Numéro d'identité : 64546456465
 Coordonnées : zhan.ye@edu.ece.fr
-Adresse : Versailles
+Adresse : versailles
 Assureur (Partie B) : chatbot
 Étant donné que la Partie A souhaite souscrire une assurance pour un prêt à l'achat d'une voiture, la Partie B accepte de fournir les services d'assurance conformément aux dispositions du présent contrat. Les deux parties concluent le présent contrat par consensus mutuel.
 I. Montant de l'assurance
@@ -27,7 +27,7 @@ Les litiges survenant lors de l'exécution du présent contrat doivent être ré
 VIII. Autres dispositions
 Le présent contrat prend effet à partir de la date de signature ou de la signature au sceau des deux parties et se termine à l'expiration de la période d'assurance.
 Le présent contrat est établi en deux exemplaires, chacune des parties en conserve un, ayant la même force juridique.
-Partie A (signature ou signature au sceau) : yezhan
-Date : 26/03/2025
+Partie A (signature ou signature au sceau) : Zhan
+Date : 27/03/2025
 Partie B (signature ou signature au sceau) : chatbot
-Date : 26/03/2025
+Date : 27/03/2025

@@ -536,3 +536,281 @@
 2025-03-26 15:44:27,775 - INFO - \u2705 成功提交贷款信息：{"name": "wsy", "gender": "m", "birth_date": "09091999", "id_number": "123456789", "address": "Versailles", "email": "shenwuyue000@gmail.com", "loan_type": "c", "loan_amount": 8000000, "assets": 500, "annual_income": 5000, "debt": 8000, "duree": 36, "assurances": true}
 2025-03-26 15:45:44,342 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-26 15:45:44,350 - INFO - \u2705 成功提交贷款信息：{"name": "xvmingma", "gender": "f", "birth_date": "09091999", "id_number": "123", "address": "Versailles", "email": "mxmaxuming@gmail.com", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": false}
+2025-03-27 01:52:04,015 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 01:52:04,042 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Bonjour Yezhan ! Pour commencer, pourriez-vous me dire votre sexe, s'il vous pla\xeet ? (homme ou femme)
+2025-03-27 01:52:17,516 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 01:52:17,520 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour l'information. Pourriez-vous maintenant me donner votre date de naissance, s'il vous pla\xeet ? (au format JJMMAAAA, par exemple, 29091999 pour le 29 septembre 1999)
+2025-03-27 01:53:13,680 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 01:53:13,682 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci, j'ai noté votre date de naissance. Cela correspond au format suivant : "29091999". 
+
+Pour continuer, pourriez-vous me fournir votre numéro d'identité ?
+2025-03-27 01:53:24,549 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 01:53:24,551 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre numéro d'identité. 
+
+Pour la suite, pourriez-vous me donner votre adresse, s'il vous pla\xeet ?
+2025-03-27 01:54:12,559 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 01:54:12,561 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre adresse. Pourriez-vous également me fournir votre adresse e-mail, s'il vous pla\xeet ?
+2025-03-27 01:54:30,946 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 01:54:30,947 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre adresse e-mail. 
+
+Maintenant, pourriez-vous me dire quel type de prêt vous souhaitez demander ? (prêt immobilier pour une maison ou prêt automobile pour une voiture)
+2025-03-27 02:06:00,387 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:06:00,388 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour cette précision. Vous souhaitez donc un prêt automobile. 
+
+Pour continuer, pourriez-vous me donner le montant du prêt que vous souhaitez demander ?
+2025-03-27 02:06:18,925 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:06:18,936 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour le montant du prêt. 
+
+Pourriez-vous maintenant me dire le montant de vos actifs ? Si vous n'avez pas d'actifs, vous pouvez simplement indiquer 0.
+2025-03-27 02:06:42,120 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:06:42,122 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour l'information concernant vos actifs. 
+
+Pour continuer, pourriez-vous me dire votre revenu annuel, s'il vous pla\xeet ?
+2025-03-27 02:06:53,487 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:06:53,488 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre revenu annuel. 
+
+Pourriez-vous maintenant me dire le montant de vos dettes ? Si vous n'avez pas de dettes, vous pouvez simplement indiquer 0.
+2025-03-27 02:07:45,502 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:07:45,503 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour cette information. 
+
+Pour continuer, pourriez-vous me dire la durée du prêt que vous souhaitez, en mois ? Par exemple, si vous pensez à un prêt de deux ans, vous pouvez dire "24 mois".
+2025-03-27 02:07:57,166 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:07:57,168 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour la durée du prêt. 
+
+Pour finir, souhaitez-vous souscrire une assurance pour votre prêt ? Le prix de l'assurance est de 0,5 % du montant du prêt demandé.
+2025-03-27 02:08:53,528 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:08:53,568 - INFO - \u2705 Informations de prêt soumises avec succès : {"name": "Yezhan", "gender": "m", "birth_date": "29091999", "id_number": "687468456", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 8000, "assets": 8000, "annual_income": 10000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-27 02:10:46,202 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:10:46,204 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre réponse. Pour commencer, pourriez-vous me donner votre nom, s'il vous pla\xeet ?
+2025-03-27 02:12:24,122 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:12:24,124 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour ces informations, Ye Zhan. Voici ce que j'ai collecté jusqu'à présent :
+
+- Nom : Ye Zhan
+- Sexe : m
+- Date de naissance : 09091999
+- Numéro d'identité : 1234567890
+- Adresse : Versailles
+- Email : zhan.ye@edu.ece.fr
+- Type de prêt : c (prêt automobile)
+- Montant du prêt demandé : 8000000
+- Actifs : 500
+- Revenu annuel : 5000
+- Dette : 8000
+- Durée : 36 mois
+- Assurances : True
+
+Avant de soumettre votre demande, pourriez-vous confirmer que toutes ces informations sont correctes ?
+2025-03-27 02:15:01,149 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:15:01,161 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci de votre intérêt pour un prêt. Pour mieux vous aider, pourriez-vous s'il vous pla\xeet me donner votre nom ?
+2025-03-27 02:16:16,549 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:16:16,557 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre demande. Pour commencer, pourriez-vous me donner votre nom, s'il vous pla\xeet ?
+2025-03-27 02:18:21,909 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:18:21,925 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre demande. Pour commencer, pourriez-vous me donner votre nom ?
+2025-03-27 02:18:27,701 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:18:27,703 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci, 叶展. Pourriez-vous maintenant me dire votre sexe ? (Homme ou femme)
+2025-03-27 02:19:00,338 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:19:00,340 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 您好！请问您是男性还是女性？
+2025-03-27 02:19:12,337 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:19:12,338 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Bonjour ! Pourriez-vous me donner votre date de naissance au format "JJMMAAAA", s'il vous pla\xeet ?
+2025-03-27 02:19:25,581 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:19:25,581 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Hello! Could you please provide your date of birth in the format "DDMMYYYY"?
+2025-03-27 02:19:36,340 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:19:36,342 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 我知道您是叶展。请您提供您的出生日期，格式为“JJMMAAAA”。
+2025-03-27 02:19:49,297 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:19:49,300 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 您好！请您提供您的出生日期，格式为“JJMMAAAA”。
+2025-03-27 02:20:08,018 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:20:08,020 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 您好！请您提供您的出生日期，格式为“JJMMAAAA”。
+2025-03-27 02:20:28,794 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:20:28,800 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre date de naissance. Je l'ai notée comme "09091999". 
+
+Pour continuer, pourriez-vous me fournir votre numéro d'identité ?
+2025-03-27 02:21:13,632 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:21:13,634 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre numéro d'identité. 
+
+Pour la suite, pourriez-vous me donner votre adresse, s'il vous pla\xeet ?
+2025-03-27 02:22:12,973 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:22:12,975 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre adresse. Je l'ai notée comme "New York".
+
+Pour continuer, pourriez-vous me fournir votre adresse e-mail ?
+2025-03-27 02:22:30,149 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:22:30,151 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Yes, I do! Please provide your email address.
+2025-03-27 02:22:44,383 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:22:44,387 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 可以的！请您提供您的电子邮件地址。
+2025-03-27 02:23:11,209 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:23:11,210 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 抱歉，我只会说英语、法语和中文。请您提供电子邮件地址。
+2025-03-27 02:24:35,021 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:24:35,033 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 会的，我会说中文。请问有什么我可以帮助您的？
+2025-03-27 02:24:46,800 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:24:46,802 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Yes, I speak English. How can I assist you today?
+2025-03-27 02:24:55,047 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 02:24:55,048 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : \u0646\u0639\u0645\u060c \u0623\u0633\u062a\u0637\u064a\u0639 \u0627\u0644\u062a\u062d\u062f\u062b \u0628\u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629. \u0643\u064a\u0641 \u064a\u0645\u0643\u0646\u0646\u064a \u0645\u0633\u0627\u0639\u062f\u062a\u0643 \u0627\u0644\u064a\u0648\u0645\u061f
+2025-03-27 14:08:11,039 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:08:11,062 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Bonjour ! Comment puis-je vous aider aujourd'hui ? Avez-vous des questions concernant un prêt ?
+2025-03-27 14:08:22,243 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:08:22,245 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Yes, I speak English! How can I assist you today? Do you have any questions about a loan?
+2025-03-27 14:08:28,915 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:08:28,917 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 你好！请问我可以如何帮助您？您对贷款有什么问题吗？
+2025-03-27 14:08:46,192 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:08:46,192 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : \u0646\u0639\u0645\u060c \u0623\u0633\u062a\u0637\u064a\u0639 \u0627\u0644\u062a\u062d\u062f\u062b \u0628\u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629! \u0643\u064a\u0641 \u064a\u0645\u0643\u0646\u0646\u064a \u0645\u0633\u0627\u0639\u062f\u062a\u0643 \u0627\u0644\u064a\u0648\u0645\u061f \u0647\u0644 \u0644\u062f\u064a\u0643 \u0623\u064a \u0627\u0633\u062a\u0641\u0633\u0627\u0631\u0627\u062a \u062d\u0648\u0644 \u0627\u0644\u0642\u0631\u0648\u0636\u061f
+2025-03-27 14:09:06,353 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:09:06,354 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour cette information. Pourriez-vous s'il vous pla\xeet me donner votre nom ?
+2025-03-27 14:09:15,313 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:09:15,315 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci, Zhan. Pourriez-vous me dire votre sexe, s'il vous pla\xeet ? (Homme ou femme)
+2025-03-27 14:09:21,714 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:09:21,715 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci, Zhan. Quelle est votre date de naissance ? Veuillez la fournir au format "JJMMAAAA".
+2025-03-27 14:09:28,754 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:09:28,755 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre date de naissance. Je l'ai enregistrée comme "09091999". 
+
+Pourriez-vous maintenant me donner votre numéro d'identité ?
+2025-03-27 14:09:34,262 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:09:34,264 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre numéro d'identité. Maintenant, pourriez-vous me donner votre adresse, s'il vous pla\xeet ?
+2025-03-27 14:09:42,673 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:09:42,673 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre adresse. Pourriez-vous également me fournir votre adresse e-mail ?
+2025-03-27 14:09:57,072 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:09:57,073 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre adresse e-mail. Maintenant, quel montant de prêt souhaitez-vous demander pour l'achat de votre voiture ?
+2025-03-27 14:10:10,204 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:10:10,206 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour le montant du prêt. Pourriez-vous me dire si vous avez des actifs ? Si oui, quel est leur montant ? Si vous n'avez pas d'actifs, veuillez indiquer 0.
+2025-03-27 14:10:19,540 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:10:19,540 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour l'information concernant vos actifs. Quel est votre revenu annuel ?
+2025-03-27 14:10:25,873 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:10:25,874 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre revenu annuel. Maintenant, pourriez-vous me dire si vous avez des dettes ? Si oui, quel est le montant ? Si vous n'avez pas de dettes, veuillez indiquer 0.
+2025-03-27 14:10:30,679 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:10:30,680 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour cette information. Quelle durée de prêt souhaitez-vous ? Veuillez indiquer en mois (par exemple, 12 mois pour un an).
+2025-03-27 14:10:38,034 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:10:38,036 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour la durée du prêt. Souhaitez-vous souscrire une assurance ? Le prix de l'assurance est de 0,5 % du montant du prêt demandé. Veuillez répondre par "oui" ou "non".
+2025-03-27 14:10:46,355 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:10:46,384 - INFO - \u2705 Informations de prêt soumises avec succès : {"name": "Zhan", "gender": "m", "birth_date": "09091999", "id_number": "64546456465", "address": "versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 8000, "assets": 10000, "annual_income": 10000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-27 14:11:00,075 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:11:00,076 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre accord. Pour commencer, pourriez-vous me donner votre nom, s'il vous pla\xeet ?
+2025-03-27 14:11:53,590 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:11:53,592 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour toutes ces informations, Ye Zhan. Voici ce que j'ai collecté jusqu'à présent :
+
+- Nom : Ye Zhan
+- Sexe : m
+- Date de naissance : 09091999
+- Numéro d'identité : 1234567890
+- Adresse : Versailles
+- Email : zhan.ye@edu.ece.fr
+- Type de prêt : c
+- Montant du prêt demandé : 8000000
+- Actifs : 500
+- Revenu annuel : 5000
+- Dette : 8000
+- Durée du prêt : 36
+- Assurance : True
+
+Pouvez-vous me confirmer si toutes ces informations sont correctes ?
+2025-03-27 14:11:59,466 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:11:59,477 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre confirmation, Ye Zhan. Votre demande de prêt a été soumise avec succès. Si vous avez d'autres questions ou si vous avez besoin d'aide supplémentaire, n'hésitez pas à me le faire savoir. Bonne journée !
+2025-03-27 14:12:57,067 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:12:57,067 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour ces informations, Wangsongyang. Voici ce que j'ai collecté jusqu'à présent :
+
+- Nom : wangsongyang
+- Sexe : m
+- Date de naissance : 09091999
+- Numéro d'identité : 5644869
+- Adresse : Versailles
+- Email : zhan.ye@edu.ece.fr
+- Type de prêt : c
+- Montant du prêt demandé : 80
+- Actifs : 500
+- Revenu annuel : 5000
+- Dette : 0
+- Durée du prêt : 36
+- Assurance : False
+
+Pouvez-vous me confirmer si toutes ces informations sont correctes ?
+2025-03-27 14:13:03,487 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:13:03,948 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre confirmation, Wangsongyang. Votre demande de prêt a été soumise avec succès. Si vous avez d'autres questions ou si vous avez besoin d'aide supplémentaire, n'hésitez pas à me le faire savoir. Bonne journée !
+2025-03-27 14:13:46,499 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:13:46,502 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : 谢谢您的同意。请问您能告诉我您的姓名吗？
+2025-03-27 14:14:15,939 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:14:15,940 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour toutes ces informations, Ye Zhan. Voici ce que j'ai collecté jusqu'à présent :
+
+- Nom : Ye Zhan
+- Sexe : m
+- Date de naissance : 09091999
+- Numéro d'identité : 1234567890
+- Adresse : Versailles
+- Email : zhan.ye@edu.ece.fr
+- Type de prêt : c
+- Montant du prêt demandé : 8000000
+- Actifs : 500
+- Revenu annuel : 5000
+- Dette : 8000
+- Durée du prêt : 36
+- Assurance : True
+
+Pouvez-vous me confirmer si toutes ces informations sont correctes ?
+2025-03-27 14:14:26,826 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:14:26,827 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre confirmation, Ye Zhan. Votre demande de prêt a été soumise avec succès. Si vous avez d'autres questions ou si vous avez besoin d'aide supplémentaire, n'hésitez pas à me le faire savoir. Bonne journée !
+2025-03-27 14:15:13,841 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:15:13,842 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour ces informations, Wangsongyang. Voici ce que j'ai collecté jusqu'à présent :
+
+- Nom : wangsongyang
+- Sexe : m
+- Date de naissance : 09091999
+- Numéro d'identité : 5644869
+- Adresse : Versailles
+- Email : zhan.ye@edu.ece.fr
+- Type de prêt : c
+- Montant du prêt demandé : 80
+- Actifs : 500
+- Revenu annuel : 5000
+- Dette : 0
+- Durée du prêt : 36
+- Assurance : False
+
+Pouvez-vous me confirmer si toutes ces informations sont correctes ?
+2025-03-27 14:15:23,795 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:15:23,796 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre confirmation, Wangsongyang. Votre demande de prêt a été soumise avec succès. Si vous avez d'autres questions ou si vous avez besoin d'aide supplémentaire, n'hésitez pas à me le faire savoir. Bonne journée !
+2025-03-27 14:16:12,421 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:16:12,422 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour ces informations, Wangsongyang. Voici ce que j'ai collecté jusqu'à présent :
+
+- Nom : wangsongyang
+- Sexe : m
+- Date de naissance : 09091999
+- Numéro d'identité : 1234
+- Adresse : Versailles
+- Email : zhan.ye@edu.ece.fr
+- Type de prêt : c
+- Montant du prêt demandé : 80
+- Actifs : 500
+- Revenu annuel : 5000
+- Dette : 0
+- Durée du prêt : 36
+- Assurance : True
+
+Pouvez-vous me confirmer si toutes ces informations sont correctes ?
+2025-03-27 14:16:22,356 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:16:22,358 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre confirmation, Wangsongyang. Votre demande de prêt a été soumise avec succès. Si vous avez d'autres questions ou si vous avez besoin d'aide supplémentaire, n'hésitez pas à me le faire savoir. Bonne journée !
+2025-03-27 14:16:48,313 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:16:48,315 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci de me le rappeler, Wangsongyang. Comment puis-je vous aider aujourd'hui ? Avez-vous des informations supplémentaires à fournir ou une question à poser ?
+2025-03-27 14:17:19,956 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:17:19,957 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour cette information, Wangsongyang. Pour compléter votre demande de prêt automobile, pourriez-vous me donner le montant du prêt que vous souhaitez emprunter ?
+2025-03-27 14:17:35,774 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:17:35,776 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci, Wangsongyang. Voici ce que j'ai collecté jusqu'à présent :
+
+- Nom : wangsongyang
+- Sexe : m
+- Date de naissance : 09091999
+- Numéro d'identité : 1234
+- Adresse : Versailles
+- Email : zhan.ye@edu.ece.fr
+- Type de prêt : c
+- Montant du prêt demandé : 8000000
+- Actifs : 500 (si vous souhaitez modifier ce montant, n'hésitez pas à le préciser)
+- Revenu annuel : 5000 (si vous souhaitez modifier ce montant, n'hésitez pas à le préciser)
+- Dette : 0
+- Durée du prêt : 36
+- Assurance : True (si vous souhaitez modifier ce choix, n'hésitez pas à le préciser)
+
+Pouvez-vous me confirmer si toutes ces informations sont correctes ?
+2025-03-27 14:17:50,983 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:17:50,985 - WARNING - \u26a0\ufe0f Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : Merci pour votre confirmation, Wangsongyang. Votre demande de prêt a été soumise avec succès. Si vous avez d'autres questions ou si vous avez besoin d'aide supplémentaire, n'hésitez pas à me le faire savoir. Bonne journée !
+2025-03-27 14:18:37,869 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:18:37,895 - INFO - \u2705 Informations de prêt soumises avec succès : {"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "1234", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": true}
+2025-03-27 14:19:22,419 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:19:22,425 - INFO - \u2705 Informations de prêt soumises avec succès : {"name": "Ye Zhan", "gender": "m", "birth_date": "09091999", "id_number": "1234567890", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 8000000, "assets": 500, "annual_income": 5000, "debt": 8000, "duree": 36, "assurances": true}
+2025-03-27 14:20:22,976 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-27 14:20:22,982 - INFO - \u2705 Informations de prêt soumises avec succès : {"name": "wangsongyang", "gender": "m", "birth_date": "09091999", "id_number": "5644869", "address": "Versailles", "email": "zhan.ye@edu.ece.fr", "loan_type": "c", "loan_amount": 80, "assets": 500, "annual_income": 5000, "debt": 0, "duree": 36, "assurances": false}

@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <title>AI 贷款助理</title>
+  <title>Assistant de demande de prêt AI</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -53,7 +53,7 @@
     ws.onmessage = function (event) {
       const contractText = event.data;
       const fullMessage = `Voici le contenu du contrat. Si vous confirmez, veuillez répondre "Je suis d'accord".\n\n${contractText}`;
-      chatDiv.innerHTML += `<p><span class="bot">助理:</span> <pre style="white-space: pre-wrap">${fullMessage}</pre></p>`;
+      chatDiv.innerHTML += `<p><span class="bot">Assistant:</span> <pre style="white-space: pre-wrap">${fullMessage}</pre></p>`;
       chatDiv.scrollTop = chatDiv.scrollHeight;
     };
 
@@ -64,7 +64,7 @@
       chatDiv.innerHTML += `<p><span class="user">你:</span> ${message}</p>`;
       messageInput.value = "";
 
-      const confirmationWords = ["我同意", "yes", "确认", "accept", "ok", "好的",'oui',"Je suis d'accord"];
+      const confirmationWords = [ "yes", "Je suis d'accord"];
       if (confirmationWords.includes(message.toLowerCase())) {
         ws.send(message);  // 发送到 WebSocket 第四部分
         chatDiv.innerHTML += `<p><span class="bot">Assistant:</span> Confirmation reçue, nous vous enverrons le contrat par e-mail dès que possible.</p>`;

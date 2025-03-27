@@ -1,50 +1,57 @@
-wsl
-1.
-cd /home/yz/kafka_2.13-3.4.0
+在linux系统里
+1.开启zookeeper
 sudo bin/zookeeper-server-start.sh config/zookeeper.properties
 
-2.
-cd /home/yz/kafka_2.13-3.4.0
+2.开启kafka
 sudo bin/kafka-server-start.sh config/server.properties
 
-3.
-bin/kafka-topics.sh --create --topic validated_requests --bootstrap-server 172.20.225.146:9092
+3.创建kafka topic
+bin/kafka-topics.sh --create --topic validated_requests --bootstrap-server localhost:9092
 bin/kafka-topics.sh --create --topic acceptation --bootstrap-server localhost:9092
 bin/kafka-topics.sh --create --topic plan --bootstrap-server localhost:9092
+
+4.启动redis
 sudo service redis-server start
 
-win
-1.
+在windows里
+1.开启celery
 celery -A assurance3.celery_app worker --loglevel=info --pool=solo
 
-2.
+2.开启flower 打开localhost：5555
 celery -A assurance3.celery_app flower --port=5555
 
-3.
+3.开启第一个微服务
 uvicorn validation1.main:app --reload --port 8001
 
-4.
+4.开启第二个微服务
 uvicorn evaluation2.main:app --reload --port 8002
 
-5.
+5.开启第三个微服务
 uvicorn assurance3.main:app --reload --port 8003
 
-6.
+6.开启第四个微服务
 uvicorn verification4.main:app --reload --port 8004
 
-7.
-C:/Users/yezhan/anaconda3/envs/soa/python.exe d:/a萨克雷学习文件/Processus_metier/projet_QI_YE/projet/verification4/test.py
-
-检查消息
+监控kafka topic里的消息，请将172.20.225.146:9092换成你自己linux的私有 IP 地址，可以在linux系统里使用hostname -I命令查询
 bin/kafka-console-consumer.sh --topic validated_requests --from-beginning --bootstrap-server 172.20.225.146:9092
 bin/kafka-console-consumer.sh --topic acceptation --from-beginning --bootstrap-server 172.20.225.146:9092
 bin/kafka-console-consumer.sh --topic plan --from-beginning --bootstrap-server 172.20.225.146:9092
 
-我叫wsy, 男， 1999年9月9日,身份证号123456789, 地址是Versailles, email是shenwuyue000@gmail.com, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
-我叫wsy, 男， 1999年9月9日,身份证号1234567890, 地址是Versailles, email是zhan.ye@edu.ece.fr, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
-我叫xvmingma, 女， 1999年9月9日,身份证号123, 地址是Versailles, email是mxmaxuming@gmail.com, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
+在运行代码前，请在根目录下创建一个.env文件，并且更换里面密钥，内容如下：
+OPENAI_API_KEY=你的openai-api密钥
+KAFKA_BROKER=172.20.225.146:9092（换成你自己linux的私有 IP 地址，可以在linux系统里使用hostname -I命令查询）
+GMAIL_USER=你的邮箱地址
+GMAIL_PASS=你的邮箱二级密码
 
+您可以逐步询问chatbot，也可以直接使用下面三种情形的示例对话来测试：
 
-我叫wangsongyang, 男， 1999年9月9日,身份证号1234, 地址是Versailles, email是zhan.ye@edu.ece.fr, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债0，想贷款36个月，买保险
-我叫xvmingma, 女， 1999年9月9日,身份证号123, 地址是Versailles, email是mxmaxuming@gmail.com, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债0，想贷款36个月，不买保险
-我叫wsy, 男， 1999年9月9日,身份证号123456789, 地址是Versailles, email是shenwuyue000@gmail.com, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债80，想贷款36个月，买保险
+1.没有贷款资格
+Je m'appelle Ye Zhan, homme, né le 9 septembre 1999, numéro d'identification 1234567890, adresse Versailles, email zhan.ye@edu.ece.fr, je souhaite emprunter 8 000 000 pour un prêt automobile, actif total 500, revenu annuel 5 000, dette 8 000, je souhaite un prêt sur 36 mois et souscrire une assurance
+
+2.购买保险，有贷款资格
+Je m'appelle wangsongyang, homme, né le 9 septembre 1999, numéro de carte d'identité 1234, adresse Versailles, email zhan.ye@edu.ece.fr, je souhaite emprunter 80 pour un prêt automobile, actif total 500, revenu annuel 5000, dette 0, je souhaite un prêt sur 36 mois et souscrire une assurance
+
+3.不买保险，有贷款资格
+Je m'appelle wangsongyang, homme, né le 9 septembre 1999, numéro de carte d'identité 5644869, adresse Versailles, email zhan.ye@edu.ece.fr, je souhaite emprunter 80 pour un prêt automobile, actif total 500, revenu annuel 5000, dette 0, je souhaite un prêt sur 36 mois, pas d'assurance
+
+客户所有信息可以在dataset文件夹中找到，命名方式是身份证号.json。合同可以在contrat文件夹中找到，命名方式是合同编号.txt。
