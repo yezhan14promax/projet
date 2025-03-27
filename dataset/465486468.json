@@ -1,0 +1,18 @@
+{
+  "name": "maxvming",
+  "gender": "f",
+  "birth_date": "08081999",
+  "id_number": "465486468",
+  "address": "UFR",
+  "email": "137591721@qq.com",
+  "loan_type": "f",
+  "loan_amount": 1000,
+  "assets": 80000,
+  "annual_income": 5000,
+  "debt": 0,
+  "duree": 36,
+  "assurances": false,
+  "max_loan": 65000.0,
+  "num_pret": "413876365762307078",
+  "num_assurance": null
+}

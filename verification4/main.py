@@ -47,7 +47,7 @@ async def chatroom_ws(websocket: WebSocket):
         while True:
             msg = await websocket.receive_text()
             logger.info(f"📥 Received confirmation message: {msg}")
-            if msg.strip().lower() in {"我同意", "确认", "yes", "accept"}:
+            if msg.strip().lower() in {"我同意", "yes", "确认", "accept", "ok", "好的",'oui',"Je suis d'accord"}:
                 await send_email_with_last_data()
     except WebSocketDisconnect:
         chatroom_clients.remove(websocket)

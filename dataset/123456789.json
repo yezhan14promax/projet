@@ -1,0 +1,16 @@
+{
+  "name": "wsy",
+  "gender": "m",
+  "birth_date": "09091999",
+  "id_number": "123456789",
+  "address": "Versailles",
+  "email": "shenwuyue000@gmail.com",
+  "loan_type": "c",
+  "loan_amount": 8000000,
+  "assets": 500,
+  "annual_income": 5000,
+  "debt": 8000,
+  "duree": 36,
+  "assurances": true,
+  "max_loan": 17250.0
+}

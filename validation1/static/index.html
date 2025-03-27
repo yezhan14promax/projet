@@ -35,11 +35,11 @@
   </style>
 </head>
 <body>
-  <h2>💬 AI 贷款申请助手</h2>
+  <h2>💬 Assistant de demande de prêt AI</h2>
   <div id="chat"></div>
   <div id="input-area">
-    <input id="message" type="text" size="70" placeholder="请输入您的信息..." />
-    <button onclick="sendMessage()">发送</button>
+    <input id="message" type="text" size="70" placeholder="Veuillez entrer votre message..." />
+    <button onclick="sendMessage()">Envoyer</button>
   </div>
 
   <script>
@@ -52,7 +52,7 @@
 
     ws.onmessage = function (event) {
       const contractText = event.data;
-      const fullMessage = `这是合同的内容，如果您确认，请回答“我同意”。\n\n${contractText}`;
+      const fullMessage = `Voici le contenu du contrat. Si vous confirmez, veuillez répondre "Je suis d'accord".\n\n${contractText}`;
       chatDiv.innerHTML += `<p><span class="bot">助理:</span> <pre style="white-space: pre-wrap">${fullMessage}</pre></p>`;
       chatDiv.scrollTop = chatDiv.scrollHeight;
     };
@@ -64,10 +64,10 @@
       chatDiv.innerHTML += `<p><span class="user">你:</span> ${message}</p>`;
       messageInput.value = "";
 
-      const confirmationWords = ["我同意", "yes", "确认", "accept"];
+      const confirmationWords = ["我同意", "yes", "确认", "accept", "ok", "好的",'oui',"Je suis d'accord"];
       if (confirmationWords.includes(message.toLowerCase())) {
         ws.send(message);  // 发送到 WebSocket 第四部分
-        chatDiv.innerHTML += `<p><span class="bot">助理:</span> 已收到您的确认，我们将尽快通过邮件发送合同。</p>`;
+        chatDiv.innerHTML += `<p><span class="bot">Assistant:</span> Confirmation reçue, nous vous enverrons le contrat par e-mail dès que possible.</p>`;
         chatDiv.scrollTop = chatDiv.scrollHeight;
         return;
       }
@@ -79,7 +79,7 @@
         body: JSON.stringify({ user_id: userId, message })
       });
       const data = await res.json();
-      chatDiv.innerHTML += `<p><span class="bot">助理:</span> ${data.reply}</p>`;
+      chatDiv.innerHTML += `<p><span class="bot">Assistant:</span> ${data.reply}</p>`;
       chatDiv.scrollTop = chatDiv.scrollHeight;
     }
 

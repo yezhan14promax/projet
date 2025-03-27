@@ -81,32 +81,33 @@ async def chat_endpoint(chat: ChatRequest):
     if not any(msg['role'] == 'system' for msg in conversation_history[user_id]):
         conversation_history[user_id].insert(0, {
             "role": "system",
-            "content": ("""你是一个智能贷款助理，请从用户的自然语言中提取以下字段，并用规范格式输出为 JSON，注意用户可能会用英语法语中文这三种语言问你：
-- name：姓名，保留原样
-- gender：性别，男填 \"m\"，女填 \"f\"
-- birth_date：出生日期，格式为 \"DDMMYYYY\"，如 1999年9月29日 → \"29091999\",如何客户的回答不符合这个格式，请将客户的回答转换为这种格式
-- id_number：身份证号，数字类型即可，长度不限。
-- address：地址
-- email：邮箱地址
-- loan_type：贷款类型，房贷填 \"f\"，车贷填 \"c\"
-  用户如果说“我要买房”、“申请房贷”、“房屋贷款”等同义词，应自动识别为 \"f\"；
-  说“我要买车”、“申请车贷”、“车辆贷款”应识别为 \"c\"
-- loan_amount：想要申请的贷款金额（单位元）
-- assets：资产金额（纯数字，单位元），没有资产填 0，存款、股票、基金等都算资产。如果是物品，比如房子，你询问用户估价。
-- annual_income：年收入（纯数字，单位元）
-- debt：债务金额（没有债务填 0）
-- duree:贷款期限，单位月。自动将客户说的时间转换成整数月，四舍五入，比如“三年”→36个月，“两年半”→30个月
-- assurances:你需要问客户是否需要购买保险并告知保险价格为想要申请的贷款金额的0.5%，如果需要这一行填为True，否则填为False              
-理解模糊语言并输出完整 JSON。当信息收集齐后，告诉用户申请已提交。
-不要重复提问用户已经明确提供过的字段。每次回答时，只提问用户还未提供的信息，最好一次问一个。
-注意用礼貌语气和客户交流，引导用户提供信息，用自然语言与客户交流。""")
+            "content": ("""Vous êtes un assistant intelligent pour les prêts. Veuillez extraire les champs suivants à partir du langage naturel de l'utilisateur et les formater en JSON standard. Notez que l'utilisateur peut poser des questions en anglais, en français ou en chinois :
+    - name : Nom, conservez tel quel.
+    - gender : Sexe, homme remplissez "m", femme remplissez "f".
+    - birth_date : Date de naissance, format "JJMMAAAA", par exemple, le 29 septembre 1999 → "29091999". Si la réponse de l'utilisateur ne respecte pas ce format, veuillez la convertir dans ce format.
+    - id_number : Numéro d'identité, type numérique, longueur illimitée.
+    - address : Adresse.
+    - email : Adresse e-mail.
+    - loan_type : Type de prêt, prêt immobilier remplissez "f", prêt automobile remplissez "c".
+      Si l'utilisateur dit "Je veux acheter une maison", "Demander un prêt immobilier", "Prêt pour une maison", etc., reconnaissez automatiquement comme "f".
+      Si l'utilisateur dit "Je veux acheter une voiture", "Demander un prêt automobile", "Prêt pour une voiture", reconnaissez comme "c".
+    - loan_amount : Montant du prêt demandé (en unités monétaires).
+    - assets : Montant des actifs (chiffres uniquement, en unités monétaires), si aucun actif, remplissez 0. Les dépôts, actions, fonds, etc., sont considérés comme des actifs. Si c'est un objet, comme une maison, demandez à l'utilisateur une estimation.
+    - annual_income : Revenu annuel (chiffres uniquement, en unités monétaires).
+    - debt : Montant de la dette (si aucune dette, remplissez 0).
+    - duree : Durée du prêt, en mois. Convertissez automatiquement le temps mentionné par l'utilisateur en mois entiers, arrondissez au plus proche, par exemple, "trois ans" → 36 mois, "deux ans et demi" → 30 mois.
+    - assurances : Vous devez demander à l'utilisateur s'il souhaite souscrire une assurance et l'informer que le prix de l'assurance est de 0,5 % du montant du prêt demandé. Si oui, remplissez cette ligne par True, sinon par False.
+              
+    Comprenez le langage ambigu et produisez un JSON complet. Une fois les informations collectées, informez l'utilisateur que la demande a été soumise.
+    Ne posez pas de questions répétées sur les champs déjà fournis clairement par l'utilisateur. À chaque réponse, ne posez des questions que sur les informations manquantes, de préférence une à la fois.
+    Utilisez un ton poli pour communiquer avec le client, guidez-le pour fournir les informations nécessaires, et interagissez avec lui en langage naturel. Une fois toutes les informations collectées, demandez à l'utilisateur de confirmer si les informations sont correctes, et soumettez-les uniquement après avoir reçu une réponse positive.""")
         })
 
     conversation_history[user_id].append({"role": "user", "content": user_message})
 
     current_data = user_collected_data.get(user_id, {})
     if current_data:
-        collected_prompt = f"当前已收集字段如下：{json.dumps(current_data, ensure_ascii=False)}，请不要重复提问这些字段，只提问剩余字段。"
+        collected_prompt = f"Les champs actuellement collectés sont les suivants : {json.dumps(current_data, ensure_ascii=False)}. Veuillez ne pas poser de questions répétées sur ces champs, mais uniquement sur les champs restants."
         conversation_history[user_id].append({"role": "system", "content": collected_prompt})
 
     response = client.chat.completions.create(
@@ -130,23 +131,23 @@ async def chat_endpoint(chat: ChatRequest):
         if not missing:
             loan_json = json.dumps(current, ensure_ascii=False)
             await producer.send_and_wait(kafka_topic, loan_json.encode("utf-8"))
-            logging.info(f"✅ 成功提交贷款信息：{loan_json}")
+            logging.info(f"✅ Informations de prêt soumises avec succès : {loan_json}")
 
-            natural_summary = f"感谢您提交申请，以下是我们为您记录的信息：\n"
-            natural_summary += f"姓名：{current['name']}，性别：{'男' if current['gender']=='m' else '女'}，出生日期：{current['birth_date']}，身份证号：{current['id_number']}。\n"
-            natural_summary += f"地址：{current['address']}，贷款类型：{'房贷' if current['loan_type']=='f' else '车贷'}，申请金额：{current['loan_amount']}元。\n"
-            natural_summary += f"资产金额：{current['assets']}元，年收入：{current['annual_income']}元，债务金额：{current['debt']}元。\n"
-            natural_summary += "✅ 您的贷款申请已成功提交，我们将尽快与您联系。如需提交新申请，您可以继续填写。"
+            natural_summary = f"Merci d'avoir soumis votre demande, voici les informations que nous avons enregistrées pour vous :\n"
+            natural_summary += f"Nom : {current['name']}, Sexe : {'Homme' if current['gender']=='m' else 'Femme'}, Date de naissance : {current['birth_date']}, Numéro d'identité : {current['id_number']}.\n"
+            natural_summary += f"Adresse : {current['address']}, Type de prêt : {'Prêt immobilier' if current['loan_type']=='f' else 'Prêt automobile'}, Montant demandé : {current['loan_amount']} unités monétaires.\n"
+            natural_summary += f"Montant des actifs : {current['assets']} unités monétaires, Revenu annuel : {current['annual_income']} unités monétaires, Montant de la dette : {current['debt']} unités monétaires.\n"
+            natural_summary += "✅ Votre demande de prêt a été soumise avec succès, nous vous contacterons dès que possible. Si vous souhaitez soumettre une nouvelle demande, vous pouvez continuer à remplir le formulaire."
 
             user_collected_data[user_id] = {}
             conversation_history[user_id] = []
 
             return {"reply": natural_summary}
         else:
-            logging.info(f"ℹ️ 当前用户 {user_id} 已提供部分信息：{current}，缺失字段：{missing}")
-            return {"reply": f"您还未提供以下信息：{', '.join(missing)}，请补充。"}
+            logging.info(f"ℹ️ L'utilisateur actuel {user_id} a fourni des informations partielles : {current}, champs manquants : {missing}")
+            return {"reply": f"Vous n'avez pas encore fourni les informations suivantes : {', '.join(missing)}, veuillez les compléter."}
 
-    logging.warning(f"⚠️ 无法从 AI 回复中提取 JSON。原始回复：{ai_reply}")
+    logging.warning(f"⚠️ Impossible d'extraire le JSON de la réponse de l'IA. Réponse originale : {ai_reply}")
     return {"reply": ai_reply}
 
 def extract_json(text: str):

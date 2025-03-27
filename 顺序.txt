@@ -40,11 +40,11 @@ bin/kafka-console-consumer.sh --topic validated_requests --from-beginning --boot
 bin/kafka-console-consumer.sh --topic acceptation --from-beginning --bootstrap-server 172.20.225.146:9092
 bin/kafka-console-consumer.sh --topic plan --from-beginning --bootstrap-server 172.20.225.146:9092
 
-我叫wsy, 男， 1999年9月9日,身份证号123456789, 地址是Versailles, email是1010743053@qq.com, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
+我叫wsy, 男， 1999年9月9日,身份证号123456789, 地址是Versailles, email是shenwuyue000@gmail.com, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
 我叫wsy, 男， 1999年9月9日,身份证号1234567890, 地址是Versailles, email是zhan.ye@edu.ece.fr, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
-我叫xvmingma, 女， 1999年9月9日,身份证号123, 地址是Versailles, email是137591721@qq.com, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
+我叫xvmingma, 女， 1999年9月9日,身份证号123, 地址是Versailles, email是mxmaxuming@gmail.com, 贷款车贷， 想贷款8000000, 总资产500, 年收入5000, 负债8000，想贷款36个月，买保险
 
 
 我叫wangsongyang, 男， 1999年9月9日,身份证号1234, 地址是Versailles, email是zhan.ye@edu.ece.fr, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债0，想贷款36个月，买保险
-我叫xvmingma, 女， 1999年9月9日,身份证号123, 地址是Versailles, email是137591721@qq.com, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债0，想贷款36个月，买保险
-我叫wsy, 男， 1999年9月9日,身份证号123456789, 地址是Versailles, email是1010743053@qq.com, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债80，想贷款36个月，买保险
+我叫xvmingma, 女， 1999年9月9日,身份证号123, 地址是Versailles, email是mxmaxuming@gmail.com, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债0，想贷款36个月，不买保险
+我叫wsy, 男， 1999年9月9日,身份证号123456789, 地址是Versailles, email是shenwuyue000@gmail.com, 贷款车贷， 想贷款80, 总资产500, 年收入5000, 负债80，想贷款36个月，买保险
